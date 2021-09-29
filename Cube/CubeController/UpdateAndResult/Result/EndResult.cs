@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 
-struct EndResult
+class EndResult
 {
     public EndResult(MBCubeObject pCube)
     {
-        ResultDirectionHit Result =
-            new DirectionHit(
-                new DirectionRayCast(pCube).Ray,
-                pCube
-            ).Result;
+        ResultDirectionHit Result = new DirectionHit(new DirectionRayCast(pCube).Ray, pCube).Result;
 
         if (Result.HitData.Equals(HitData.CUBE))
             new HitCube(pCube, Result.HitPosition);

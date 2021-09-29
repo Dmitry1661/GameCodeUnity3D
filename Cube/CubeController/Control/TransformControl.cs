@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-struct TransformControl
+class TransformControl
 {
     public TransformControl(MBCubeObject pCubeController)
     {

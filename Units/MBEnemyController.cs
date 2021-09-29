@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MBEnemyController : MonoBehaviour
+public class MBEnemyController : MBUnitController
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Creating.Run( this, PlayerData.PLAYER_2, 
+            PlayerData.PLAYER_2_DIRECTION_HORIZONTAL, PlayerData.PLAYER_2_DIRECTION_VERTICAL,
+            PlayerData.PLAYER_1, false);
     }
 }

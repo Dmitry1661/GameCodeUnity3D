@@ -21,18 +21,12 @@ class NeighborsHit
 
             foreach (RaycastHit hit in hits)
             {
-                float distance = Vector3.
-                    Distance(
-                        hit.collider.GetComponent<Transform>().position,
-                        position
-                    );
+                float distance = Vector3.Distance(hit.collider.GetComponent<Transform>().position, position);
 
                 if (distance <= CubeData.HIT_DISTANCE)
                 {
                     if (hit.collider.CompareTag(HitData.CUBE) || hit.collider.CompareTag(HitData.STOPPED))
-                    {
                         Neighbors[ray.Key] = hit.collider.gameObject;
-                    }
                 }
             }
         }

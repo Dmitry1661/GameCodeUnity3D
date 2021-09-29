@@ -23,5 +23,3 @@ public class Environment
     public MBCubeObject Cube { private set; get; }
     public Dictionary<Direction, GameObject> Neighbors { private set; get; }
 }
-
-

@@ -11,15 +11,15 @@ public class MBCreatingUnit : MonoBehaviour
             GameSystem = aGameSystem;
     }
 
-    public void Run(MBUnitController pUnitController, string pUnitName, 
+    public void Run(MBUnitController pUnitController, string pUnitName,
         Direction pDirectionHorizontal, Direction pDirectionVertical, string pUnitEnemyName, bool pFirstRun)
     {
         StartCoroutine(
             CreatingUnitCoroutine(
                 pUnitController,
                 pUnitName,
-                pDirectionHorizontal, pDirectionVertical, 
-                pUnitEnemyName, 
+                pDirectionHorizontal, pDirectionVertical,
+                pUnitEnemyName,
                 pFirstRun)
             );
     }
@@ -28,12 +28,11 @@ public class MBCreatingUnit : MonoBehaviour
     {
         // Запишим место респауна кубов.
         pUnitController.CubeManager
-            .AddRespownPosition( pUnitName + PlayerData.PLAYER_RESPOWN );
+            .AddRespownPosition(pUnitName + PlayerData.PLAYER_RESPOWN);
 
         // Запишим все кубы которые мы можем использовать.
         pUnitController.CubeManager
-            .AddCube( CubeData.DEFAULT_CUBE_NAME, CubeData.DEFAULT_CUBE_PATH );
-
+            .AddCube(CubeData.DEFAULT_CUBE_NAME, CubeData.DEFAULT_CUBE_PATH);
 
         // Создадим кубы по горизонатали.
         for (int i = 0; i < PanelData.HORIZONTAL_COUNT; i++)

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MBCubeObject : MonoBehaviour
 {
     public GameObject GameObj { private set; get; }
     public MBGameSystem GameSystem { private set; get; }
     public MBTransform Transform { private set; get; }
+    public MBTimer Timer { private set; get; }
 
     public void Awake()
     {
@@ -16,6 +16,9 @@ public class MBCubeObject : MonoBehaviour
 
         if (gameObject.TryGetComponent(out MBTransform aTransform))
             Transform = aTransform;
+
+        if (gameObject.TryGetComponent(out MBTimer aTimer))
+            Timer = aTimer;
 
         Property = new CubeProperty();
         Environment = new Environment(this);
