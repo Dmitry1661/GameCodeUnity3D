@@ -1,13 +1,12 @@
 ﻿/// <summary>
-/// Связь с создателем.
+/// Связь с текущим Running Unit.
 /// </summary>
-public class ConnectTheMaker
+public class CurrentUnit
 {
     public MBUnitController UnitController { private set; get; }
 
     public void AddUnit(MBUnitController pUnitControler)
     {
-        if (UnitController == null)
-            UnitController = pUnitControler;
+        UnitController = pUnitControler;
     }
 }

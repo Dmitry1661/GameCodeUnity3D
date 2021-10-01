@@ -11,6 +11,8 @@ class SendTheCubeToTheField
         if (new PropertyControl(pCube, PropertyControlData.HAS_LOCATION_PANEL).Result)
         {
             new PropertyControl(pCube, PropertyControlData.SEND_THE_CUBE_TO_THE_FIELD);
+
+            new UnitControl(pCube, UnitControlData.BOARDS_RAISE);
         }
     }
 }

@@ -22,12 +22,12 @@ public class MBCubeObject : MonoBehaviour
 
         Property = new CubeProperty();
         Environment = new Environment(this);
-        Maker = new ConnectTheMaker();
+        Unit = new CurrentUnit();
     }
 
     public CubeProperty Property { private set; get; }
     public Environment Environment { private set; get; }
-    public ConnectTheMaker Maker { private set; get; }
+    public CurrentUnit Unit { private set; get; }
 }
 
 

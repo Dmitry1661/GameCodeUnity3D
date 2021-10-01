@@ -22,7 +22,11 @@ class SurveyNeighbors : INeighborsEvent
             {
                 // Если уперлись в куб, то узнаем во что уперается этот куб.
                 if (obj.TryGetComponent(out MBCubeObject aCubeObject))
+                {
                     result = aCubeObject.Environment.Event(new SurveyNeighbors(Direction));
+
+                    aCubeObject.Unit.AddUnit(pEnviroment.Cube.Unit.UnitController);
+                }
             }
         }
         else

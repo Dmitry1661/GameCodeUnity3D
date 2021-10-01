@@ -13,7 +13,7 @@ class MakerControl
         switch(pCommand)
         {
             case MakerControlData.ADD_MAKER:
-                pCube.Maker.AddUnit(pUnit);
+                pCube.Unit.AddUnit(pUnit);
                 break;
         }
     }

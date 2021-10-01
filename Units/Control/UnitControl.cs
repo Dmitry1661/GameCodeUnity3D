@@ -11,16 +11,16 @@ public class UnitControl
         }
     }
 
-    public UnitControl(MBCubeController pCube, int pCommand)
+    public UnitControl(MBCubeObject pCube, int pCommand)
     {
         switch (pCommand)
         {
             case UnitControlData.BOARDS_RAISE:
-                pCube.Maker.UnitController.BoardsManager.Raise();
+                pCube.Unit.UnitController.BoardsManager.Raise();
                 break;
 
             case UnitControlData.BOARDS_DOWN:
-                pCube.Maker.UnitController.BoardsManager.Down();
+                pCube.Unit.UnitController.BoardsManager.Down();
                 break;
         }
     }

@@ -8,6 +8,8 @@ class HitStopped
     public HitStopped(MBCubeObject pCube, Vector3 pHitPosition)
     {
         new PropertyControl(pCube, PropertyControlData.SET_FLAG_ACTION_NONE, pHitPosition);
+
+        new UnitControl(pCube, UnitControlData.BOARDS_DOWN);
     }
 }
 
