@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CreatingCube : IUnitEvent
+﻿public class CreatingCube : IUnitEvent
 {
     public CreatingCube(string pName)
     {
@@ -15,22 +11,18 @@ public class CreatingCube : IUnitEvent
         Action = pAction;
     }
 
-    public void Event(MBUnitController pUnitController)
+    public void Event(MBUnitController pUnit)
     {
         // Создаем куб с помощью GameObject.
-        MBCubeObject cubeController =
-            pUnitController.CubeManager.Cubes[Name]
+        MBCubeObject cube =
+            pUnit.CubeManager.Cubes[Name]
             .GetComponent<MBCreation>().Use()
                 .GetComponent<MBCubeObject>();
 
-        new TransformControl(cubeController, pUnitController.CubeManager.RespownPosition);
-        new PropertyControl(cubeController, PropertyControlData.CREATING_CUBE, Direction);
-
-        // Добавим ссылку на создателя.
-        //cubeController.Maker.AddUnit(pUnitController);
-
-        // Определим ссыку на куб Choice создателю.
-        //pUnitController.ChoiceManager.Define(cubeController);
+        new TransformControl(cube, pUnit.CubeManager.RespownPosition);
+        new PropertyControl(cube, PropertyControlData.CREATING_CUBE, Direction);
+        new MakerControl(pUnit, cube, MakerControlData.ADD_MAKER);
+        new UnitControl(pUnit, cube, UnitControlData.ADD_LINK_THE_CHOICE);
     }
 
     public string Name { private set; get; }

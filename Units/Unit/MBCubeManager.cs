@@ -25,7 +25,7 @@ public class MBCubeManager : MonoBehaviour
     /// <param name="pPath">Путь до префаба куба.</param>
     public void AddCube(string pName, string pPath)
     {
-        Cubes.Add(pName, Resources.Load(pPath) as GameObject);
+        Cubes.Add(pName, Resources.Load(pPath + pName) as GameObject);
     }
 
     public Vector3 RespownPosition { private set; get; }

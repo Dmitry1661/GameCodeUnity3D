@@ -15,32 +15,36 @@ public class MBCreatingUnit : MonoBehaviour
         Direction pDirectionHorizontal, Direction pDirectionVertical, string pUnitEnemyName, bool pFirstRun)
     {
         StartCoroutine(
-            CreatingUnitCoroutine(
-                pUnitController,
-                pUnitName,
-                pDirectionHorizontal, pDirectionVertical,
-                pUnitEnemyName,
-                pFirstRun)
+            CreatingUnitCoroutine( pUnitController, pUnitName, pDirectionHorizontal, 
+                pDirectionVertical, pUnitEnemyName, pFirstRun)
             );
     }
-    private IEnumerator CreatingUnitCoroutine(MBUnitController pUnitController, string pUnitName,
+
+    private IEnumerator CreatingUnitCoroutine(MBUnitController pUnit, string pUnitName,
         Direction pDirectionHorizontal, Direction pDirectionVertical, string pUnitEnemyName, bool pFirstRun)
     {
-        // Запишим место респауна кубов.
-        pUnitController.CubeManager
-            .AddRespownPosition(pUnitName + PlayerData.PLAYER_RESPOWN);
+        // Добавим нашего Unit в игровую логику.
+        new GameControl(pUnit, GameControlData.ADD_UNIT, pFirstRun);
 
-        // Запишим все кубы которые мы можем использовать.
-        pUnitController.CubeManager
-            .AddCube(CubeData.DEFAULT_CUBE_NAME, CubeData.DEFAULT_CUBE_PATH);
+        new UnitControl(pUnitName, pUnit, UnitControlData.TO_CONFIG_CUBE_MANAGER, new string[] { CubeData.DEFAULT_CUBE_NAME });
 
         // Создадим кубы по горизонатали.
         for (int i = 0; i < PanelData.HORIZONTAL_COUNT; i++)
         {
-            pUnitController.Event(new CreatingCube(CubeData.DEFAULT_CUBE_NAME, pDirectionHorizontal, Action.Move));
+            new UnitControl(CubeData.DEFAULT_CUBE_NAME, pUnit, UnitControlData.CREATING_CUBE, pDirectionHorizontal);
 
             yield return new WaitForSeconds(CubeData.TIME_STEP_CREATING_CUBE);
         }
+
+        // Создадим кубы по горизонатали.
+        for (int i = 0; i < PanelData.VERTICAL_COUNT; i++)
+        {
+            new UnitControl(CubeData.DEFAULT_CUBE_NAME, pUnit, UnitControlData.CREATING_CUBE, pDirectionVertical);
+
+            yield return new WaitForSeconds(CubeData.TIME_STEP_CREATING_CUBE);
+        }
+
+        new UnitControl(CubeData.DEFAULT_CUBE_NAME, pUnit, UnitControlData.CREATING_CUBE, Direction.None);
 
         yield return null;
     }

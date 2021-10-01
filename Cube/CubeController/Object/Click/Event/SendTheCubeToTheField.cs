@@ -12,7 +12,5 @@ class SendTheCubeToTheField
         {
             new PropertyControl(pCube, PropertyControlData.SEND_THE_CUBE_TO_THE_FIELD);
         }
-         // Поднимаем борты у создателя.
-         // pCubeController.Maker.UnitController.BoardsManager.Raise();
     }
 }

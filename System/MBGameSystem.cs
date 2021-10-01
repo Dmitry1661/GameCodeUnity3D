@@ -4,8 +4,9 @@ public class MBGameSystem : MonoBehaviour
 {
     private void Awake()
     {
-        //Logic = new GameLogic();
+        Logic = new GameLogic();
     }
 
-    //public GameLogic Logic { private set; get; }
+    public GameLogic Logic { private set; get; }
 }
+

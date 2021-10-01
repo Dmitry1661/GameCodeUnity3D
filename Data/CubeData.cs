@@ -19,19 +19,13 @@
     /// <summary>
     /// Папка в которой хранятся префабы кубов.
     /// </summary>
-    private const string CUBE_PATH = "Cubes/";
+    public const string CUBE_PATH = "Cubes/";
 
     /// <summary>
     /// Имя стандартного куба.
     /// </summary>
     public const string DEFAULT_CUBE_NAME = "DefaultCube";
     public const string RED_CUBE_NAME = "RedCube";
-
-    /// <summary>
-    /// Путь до стандартного куба.
-    /// </summary>
-    public const string DEFAULT_CUBE_PATH = CUBE_PATH + DEFAULT_CUBE_NAME;
-    public const string RED_CUBE_PATH = CUBE_PATH + RED_CUBE_NAME;
 
     /// <summary>
     /// У любого обьекта в проекте данная позиция невозможна.
