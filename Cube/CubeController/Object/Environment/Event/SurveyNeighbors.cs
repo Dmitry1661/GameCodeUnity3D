@@ -25,7 +25,7 @@ class SurveyNeighbors : INeighborsEvent
                 {
                     result = aCubeObject.Environment.Event(new SurveyNeighbors(Direction));
 
-                    aCubeObject.Unit.AddUnit(pEnviroment.Cube.Unit.UnitController);
+                    aCubeObject.Unit.SetUnit(pEnviroment.Cube.Unit.UnitController);
                 }
             }
         }

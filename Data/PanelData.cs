@@ -7,6 +7,7 @@ public struct PanelData
     /// Количесво кубов по горизонали.
     /// </summary>
     public const int HORIZONTAL_COUNT = 8;
+
     /// <summary>
     /// Количесво кубов по вертикали.
     /// </summary>

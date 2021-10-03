@@ -3,10 +3,10 @@
     public CubeUpdate(MBCubeObject pCube, float pDeltaTime)
     {
         // Узнаем находиться ли куб в состоянии движения.
-        if (new PropertyControl(pCube, PropertyControlData.HAS_FLAG_ACTION_MOVE).Result)
+        if (new CubePropertyControl(pCube, PropertyControlData.HAS_FLAG_ACTION_MOVE).Result)
         {
             // Если да, то двигаем обьект.
-            new TransformControl(pCube, pDeltaTime);
+            new CubeTransformControl(pCube, pDeltaTime);
 
             // Конечный результат жизнидеятельности обьекта.
             new EndResult(pCube);

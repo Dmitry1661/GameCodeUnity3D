@@ -15,7 +15,7 @@ public class DefinePropertyActionMoveNeighbor : INeighborsEvent
     {
         bool result = false;
 
-        new PropertyControl(pEnvironment.Cube, PropertyControlData.SET_FLAG_ACTION_MOVE, Direction);
+        new CubePropertyControl(pEnvironment.Cube, PropertyControlData.SET_FLAG_ACTION_MOVE, Direction);
 
         GameObject obj;
         if (pEnvironment.Neighbors.TryGetValue(Direction, out obj))
@@ -24,7 +24,12 @@ public class DefinePropertyActionMoveNeighbor : INeighborsEvent
             if (obj.CompareTag(HitData.CUBE))
             {
                 if (obj.TryGetComponent(out MBCubeObject aCubeObject))
+                {
                     aCubeObject.Environment.Event(new DefinePropertyActionMoveNeighbor(Direction));
+
+                    aCubeObject.Unit.SetUnit(pEnvironment.Cube.Unit.UnitController);
+                }
+
 
                 result = true;
             }

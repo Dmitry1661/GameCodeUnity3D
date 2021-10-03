@@ -24,7 +24,7 @@ public class DirectionHit
     {
         Result = new ResultDirectionHit(new Vector3(), HitData.NONE);
 
-        Vector3 position = new TransformControl(pCube).Position;
+        Vector3 position = new CubeTransformControl(pCube).Position;
 
         RaycastHit hit = new RaycastHit();
 

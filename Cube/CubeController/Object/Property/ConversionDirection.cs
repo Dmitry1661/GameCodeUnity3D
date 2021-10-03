@@ -13,13 +13,13 @@ public class ConversionDirection
     /// <param name="pDirection"></param>
     public ConversionDirection(MBCubeObject pCube)
     {
-        if (new PropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Upper).Result)
+        if (new CubePropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Upper).Result)
             Direction = Direction.Left;
-        else if (new PropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Lower).Result)
+        else if (new CubePropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Lower).Result)
             Direction = Direction.Right;
-        else if (new PropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Left).Result)
+        else if (new CubePropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Left).Result)
             Direction = Direction.Upper;
-        else if (new PropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Right).Result)
+        else if (new CubePropertyControl(pCube, PropertyControlData.HAS_DIRECTION_FLAG, Direction.Right).Result)
             Direction = Direction.Lower;
     }
 

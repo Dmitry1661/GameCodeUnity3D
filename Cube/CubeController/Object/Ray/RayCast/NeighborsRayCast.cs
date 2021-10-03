@@ -9,8 +9,8 @@ class NeighborsRayCast
     /// <param name="MBCubeObject"></param>
     public NeighborsRayCast(MBCubeObject pCube)
     {
-        Transform transform = new TransformControl(pCube).Transform;
-        Vector3 position = new TransformControl(pCube).Position;
+        Transform transform = new CubeTransformControl(pCube).Transform;
+        Vector3 position = new CubeTransformControl(pCube).Position;
 
         Rays = new Dictionary<Direction, Ray>()
         {
